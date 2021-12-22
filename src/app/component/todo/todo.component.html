@@ -1,0 +1,10 @@
+<p>todo works!</p>
+<div class="col-md-8 offset-md-2">
+  <input type="text" class="form-control" [formControl]="content" (change)="change()" name="" id="">
+  <ul>
+    <li (click)="toggleTodo(i)" [class.complete]="todo.complete"
+        *ngFor="let todo of todos; let i = index">
+      {{todo["content"]}}
+    </li>`
+  </ul>
+</div>
