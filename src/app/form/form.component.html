@@ -1,20 +1,27 @@
 <p>form works!</p>
 <form
   autocomplete="off"
-  #bookForm = "ngForm">
+  #bookForm="ngForm"
+  (ngSubmit)="submit()"
+>
   <div class="form-group">
     <label>Book Name</label>
-    <input name="name" [(ngModel)] = "book.name" type="text" class="form-control">
+    <input name="name" required minlength="6" [(ngModel)]="book.name" type="text" class="form-control">
 
-    <label >Year</label>
-    <input  name="year" [(ngModel)] = "book.year" type="text" class="form-control">
+    <label>Year</label>
+    <input name="year" required minlength="4" [(ngModel)]="book.year" type="text" class="form-control">
 
-    <label>Stars</label>
-    <input  name="stars" [(ngModel)] = "book.author" type="text" class="form-control">
+    <label>Author</label>
+    <input name="author" required minlength="8" [(ngModel)]="book.author" type="text" class="form-control">
   </div>
   <button type="submit" class="btn btn-primary mr-1">Save</button>
-<h2>Book's Information</h2>
-  <p>{{book.name}}</p>
-  <p>{{book.year}}</p>
-  <p>{{book.author}}</p>
+
+
 </form>
+<h2>Book's Information</h2>
+<pre>{{bookForm.value|json}}</pre>
+<pre>{{bookForm.controls['name'].errors|json}}</pre>
+<pre>{{bookForm.controls['year'].errors|json}}</pre>
+<pre>{{bookForm.controls['author'].errors|json}}</pre>
+
+

@@ -15,5 +15,8 @@ book = {
 
   ngOnInit(): void {
   }
+  submit(){
+    console.log(this.book)
+  }
 
 }
